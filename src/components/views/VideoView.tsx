@@ -67,7 +67,7 @@ export function VideoView() {
   return (
     <section className="relative flex h-dvh max-h-dvh flex-col overflow-hidden bg-indigo text-cream">
       <header className="relative z-10 flex items-center justify-between gap-3 px-4 py-3">
-        <BrandMark variant="white" className="h-7" />
+        <BrandMark className="h-12" />
         <p className="min-w-0 flex-1 truncate text-sm font-bold text-gold">Sofía y Lucas</p>
         <button
           type="button"

@@ -14,9 +14,8 @@ export function AboutView() {
           educación parvularia. Lo guía la persona educadora, proyectado en la sala.
         </p>
         <p className="text-lg leading-relaxed text-muted">
-          Un proyecto de MIRARIM. No se piden ni se envían nombres de niñas o niños. En Personalizar puedes
-          usar el logo del establecimiento o ocultar MIRARIM. Esa marca, el colegio y el curso viajan en el
-          enlace de la presentación, sin pasar por un servidor. El avance del juego no viaja.
+          Versión para el Colegio Metodista Robert Johnson, Alto Hospicio. No se piden ni se envían nombres de
+          niñas o niños. El avance queda en este dispositivo.
         </p>
         <button
           type="button"

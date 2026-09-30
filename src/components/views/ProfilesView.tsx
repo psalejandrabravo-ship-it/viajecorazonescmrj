@@ -1,18 +1,16 @@
 import { useState } from "react";
 import { BrandMark } from "@/components/brand/Logo";
-import { CopyAulaButton } from "@/components/game/CopyAulaButton";
 import { TOTAL_SITUACIONES } from "@/data";
 import { useGameStore } from "@/store/game-store";
 
 export function ProfilesView() {
   const profiles = useGameStore((s) => s.profiles);
   const activeProfileId = useGameStore((s) => s.activeProfileId);
-  const customize = useGameStore((s) => s.customize);
   const saveProfile = useGameStore((s) => s.saveProfile);
   const loadProfile = useGameStore((s) => s.loadProfile);
   const deleteProfile = useGameStore((s) => s.deleteProfile);
   const setScreen = useGameStore((s) => s.setScreen);
-  const [name, setName] = useState(customize.courseName || customize.schoolName || "");
+  const [name, setName] = useState("");
 
   return (
     <section className="sheet-view px-6 py-10">
@@ -21,10 +19,6 @@ export function ProfilesView() {
         <h1 className="text-3xl font-extrabold text-indigo">Perfiles</h1>
         <p className="text-muted">
           Guarda el avance de un curso en este dispositivo. Puedes cambiar de sala sin mezclar el recorrido.
-        </p>
-        <p className="text-muted">
-          El enlace abre la presentación con el colegio, el curso y la marca elegida. No pasa por un servidor. El
-          avance de las situaciones queda en cada computador.
         </p>
 
         <div className="flex flex-col gap-3 sm:flex-row">
@@ -68,7 +62,6 @@ export function ProfilesView() {
                 >
                   {activeProfileId === profile.id ? "En uso" : "Cargar"}
                 </button>
-                <CopyAulaButton customize={profile.customize} name={profile.name} variant="row" />
                 <button
                   type="button"
                   onClick={() => deleteProfile(profile.id)}

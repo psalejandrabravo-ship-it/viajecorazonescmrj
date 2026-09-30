@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BookOpen, Pause, Settings, Volume2, X } from "lucide-react";
 import { BrandMark } from "@/components/brand/Logo";
+import { InstitutionCredit } from "@/components/brand/InstitutionCredit";
 import { FeedbackScreen } from "@/components/game/FeedbackScreen";
 import { FullscreenButton } from "@/components/game/FullscreenButton";
 import { SceneImage } from "@/components/game/SceneImage";
@@ -92,7 +93,7 @@ export function PlayView() {
   return (
     <section className={cn("stage-play", motion ? "" : "no-motion")}>
       <header className="area-header">
-        <BrandMark variant="white" className="hidden h-7 shrink-0 lg:block" />
+        <BrandMark className="hidden h-12 shrink-0 lg:block" />
         <h1 className="min-w-0 flex-1 truncate text-sm font-extrabold tracking-wide text-cream md:text-base">
           El viaje de los corazones
         </h1>
@@ -156,22 +157,25 @@ export function PlayView() {
         </div>
       </aside>
 
-      <footer className="area-footer">
-        {SITUACIONES.map((item, i) => (
-          <button
-            key={item.id}
-            type="button"
-            onClick={() => beginSituation(i)}
-            className={cn(
-              "progress-dot",
-              i === situationIndex ? "is-current" : "",
-              completed.includes(item.id) ? "is-done" : "",
-            )}
-            aria-label={`${item.titulo}${completed.includes(item.id) ? ", completada" : ""}`}
-          >
-            {item.id}
-          </button>
-        ))}
+      <footer className="area-footer flex-col gap-1 py-1">
+        <div className="flex flex-wrap items-center justify-center gap-1">
+          {SITUACIONES.map((item, i) => (
+            <button
+              key={item.id}
+              type="button"
+              onClick={() => beginSituation(i)}
+              className={cn(
+                "progress-dot",
+                i === situationIndex ? "is-current" : "",
+                completed.includes(item.id) ? "is-done" : "",
+              )}
+              aria-label={`${item.titulo}${completed.includes(item.id) ? ", completada" : ""}`}
+            >
+              {item.id}
+            </button>
+          ))}
+        </div>
+        <InstitutionCredit />
       </footer>
 
       {pauseModal}

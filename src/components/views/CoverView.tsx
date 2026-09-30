@@ -1,6 +1,5 @@
-import { BookOpen, Play, Settings, SlidersHorizontal, Users } from "lucide-react";
+import { BookOpen, Play, Settings, Users } from "lucide-react";
 import { BrandMark } from "@/components/brand/Logo";
-import { CopyAulaButton } from "@/components/game/CopyAulaButton";
 import { FullscreenButton } from "@/components/game/FullscreenButton";
 import { TOTAL_SITUACIONES } from "@/data";
 import { unlockAudio } from "@/lib/audio/sfx";
@@ -11,14 +10,7 @@ export function CoverView() {
   const setScreen = useGameStore((s) => s.setScreen);
   const startFromCover = useGameStore((s) => s.startFromCover);
   const completed = useGameStore((s) => s.completed);
-  const customize = useGameStore((s) => s.customize);
-  const shareNotice = useGameStore((s) => s.shareNotice);
-  const dismissShareNotice = useGameStore((s) => s.dismissShareNotice);
   const allDone = completed.length >= TOTAL_SITUACIONES;
-  const aulaLabel = [customize.courseName, customize.schoolName, customize.teacherName]
-    .map((part) => part.trim())
-    .filter(Boolean)
-    .join(" · ");
 
   function play() {
     unlockAudio();
@@ -37,8 +29,8 @@ export function CoverView() {
       <div className="relative z-10 flex justify-end px-3 pt-3">
         <FullscreenButton light label />
       </div>
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-5 px-6 pb-6 text-center">
-        <BrandMark variant="white" className="h-8 shrink-0 md:h-11" />
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-5 px-6 pb-10 text-center">
+        <BrandMark className="h-20 shrink-0 md:h-24" />
         <div className="max-w-3xl shrink-0 space-y-2">
           <h1 className="text-3xl font-extrabold tracking-tight text-cream sm:text-4xl md:text-5xl">
             El viaje de los corazones
@@ -47,22 +39,7 @@ export function CoverView() {
           <p className="text-sm font-semibold text-gold md:text-base">
             {TOTAL_SITUACIONES} situaciones · para proyectar en la sala
           </p>
-          {aulaLabel ? <p className="text-sm font-semibold text-cream/85 md:text-base">{aulaLabel}</p> : null}
         </div>
-        {shareNotice ? (
-          <div className="flex w-full max-w-xl items-start gap-3 rounded-xl bg-paper px-4 py-3 text-left text-indigo shadow-lg">
-            <p className="min-w-0 flex-1 text-sm font-semibold leading-snug">
-              Aula lista: {shareNotice}. El avance de las situaciones se guarda en este dispositivo.
-            </p>
-            <button
-              type="button"
-              onClick={dismissShareNotice}
-              className="h-10 shrink-0 rounded-lg bg-coral px-3 text-sm font-extrabold text-paper"
-            >
-              Entendido
-            </button>
-          </div>
-        ) : null}
         <div className="flex w-full max-w-3xl shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-center">
           <button
             type="button"
@@ -71,14 +48,6 @@ export function CoverView() {
           >
             <Play className="size-5" aria-hidden />
             {allDone ? "Ver certificado" : completed.length ? "Continuar" : "Jugar"}
-          </button>
-          <button
-            type="button"
-            onClick={() => setScreen("customize")}
-            className="inline-flex h-14 min-w-44 items-center justify-center gap-2 rounded-xl bg-paper/15 px-6 text-base font-semibold text-cream backdrop-blur-sm transition hover:bg-paper/25"
-          >
-            <SlidersHorizontal className="size-5" aria-hidden />
-            Personalizar
           </button>
           <button
             type="button"
@@ -105,7 +74,6 @@ export function CoverView() {
             Configuración
           </button>
         </div>
-        {aulaLabel ? <CopyAulaButton customize={customize} variant="cover" /> : null}
         <button
           type="button"
           onClick={() => setScreen("about")}

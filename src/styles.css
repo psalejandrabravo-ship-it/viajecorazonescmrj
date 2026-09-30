@@ -24,7 +24,7 @@
   --radius-lg: 24px;
   --radius-xl: 32px;
   --size-header: 4.5rem;
-  --size-footer: 3.75rem;
+  --size-footer: 5rem;
   --size-script: 25rem;
   --animate-pop: pop-in 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
   --animate-shake: shake 0.42s ease-in-out both;
@@ -581,11 +581,12 @@
   min-height: 100dvh;
   background: var(--color-cream);
   color: var(--color-ink);
+  padding-bottom: 2.25rem;
 }
 @media (max-width: 1023px) {
   .stage-play {
     grid-template-columns: 1fr;
-    grid-template-rows: 3.5rem minmax(0, 1fr) 3.25rem;
+    grid-template-rows: 3.5rem minmax(0, 1fr) 4.75rem;
     grid-template-areas: "header" "main" "footer";
   }
   .area-script {

@@ -10,7 +10,6 @@ const steps = [
   "El grupo vota con los dedos o los pulgares. Tú pulsas la opción de la mayoría. No hay puntaje ni perdedores.",
   "Al responder se ve la ilustración de la situación y el porqué. Pulsa Continuar. No hay que repetir.",
   "La voz suena solo cuando pulsas el ícono. Los sonidos de acierto y error se oyen al elegir.",
-  "En Personalizar eliges la marca: logo MIRARIM, el de tu establecimiento, o ninguno. Desde ahí puedes generar una presentación para abrirla en otro computador o en el proyector. El avance queda en cada dispositivo.",
 ];
 
 export function HowToView() {

@@ -5,28 +5,23 @@ import { HowToView } from "@/components/views/HowToView";
 import { SettingsView } from "@/components/views/SettingsView";
 import { PlayView } from "@/components/views/PlayView";
 import { CertificateView } from "@/components/views/CertificateView";
-import { CustomizeView } from "@/components/views/CustomizeView";
 import { ProfilesView } from "@/components/views/ProfilesView";
 import { AboutView } from "@/components/views/AboutView";
 import { VideoView } from "@/components/views/VideoView";
 import { LandscapeHint } from "@/components/game/LandscapeHint";
+import { InstitutionCredit } from "@/components/brand/InstitutionCredit";
 import { warmupVoices } from "@/lib/audio/speech";
 import { preloadSfx, unlockAudio } from "@/lib/audio/sfx";
-import { clearAulaHash, readAulaFromLocation } from "@/lib/persistence/share";
 import { useGameStore } from "@/store/game-store";
 
 export function GameApp() {
   const screen = useGameStore((s) => s.screen);
   const hydrate = useGameStore((s) => s.hydrate);
   const persist = useGameStore((s) => s.persist);
+  const onDark = screen === "cover" || screen === "welcome" || screen === "video";
 
   useEffect(() => {
     hydrate();
-    const share = readAulaFromLocation();
-    if (share) {
-      clearAulaHash();
-      useGameStore.getState().importClassroom(share);
-    }
     warmupVoices();
     const onFirst = () => {
       unlockAudio();
@@ -65,9 +60,6 @@ export function GameApp() {
     case "certificate":
       view = <CertificateView />;
       break;
-    case "customize":
-      view = <CustomizeView />;
-      break;
     case "profiles":
       view = <ProfilesView />;
       break;
@@ -81,6 +73,7 @@ export function GameApp() {
   return (
     <>
       {view}
+      {screen === "play" || screen === "certificate" ? null : <InstitutionCredit light={onDark} fixed />}
       <LandscapeHint />
     </>
   );

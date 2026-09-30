@@ -36,7 +36,7 @@ export function WelcomeView() {
         <FullscreenButton light label />
       </div>
       <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-6 px-6 pb-8 text-center">
-        <BrandMark variant="white" className="h-8 shrink-0 md:h-11" />
+        <BrandMark className="h-20 shrink-0 md:h-24" />
         <div className="max-w-2xl space-y-3">
           <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-gold">Bienvenida</p>
           <h1 className="text-3xl font-extrabold tracking-tight text-cream sm:text-4xl md:text-5xl">

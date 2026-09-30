@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { Customize, LogoMode, PersistedState, Profile, Settings } from "@/types/game";
 
-export const STORAGE_KEY = "mirarim-viaje-corazones";
+export const STORAGE_KEY = "metodista-viaje-corazones";
 export const SCHEMA_VERSION = 3 as const;
 
 const settingsSchema = z.object({
@@ -66,8 +66,8 @@ export const defaultSettings: Settings = {
 
 export function defaultCustomize(): Customize {
   return {
-    schoolName: "",
-    courseName: "",
+    schoolName: "Colegio Metodista Robert Johnson",
+    courseName: "Alto Hospicio",
     teacherName: "",
     logoDataUrl: null,
     logoMode: "mirarim",

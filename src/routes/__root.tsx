@@ -12,7 +12,7 @@ export const Route = createRootRoute({
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: APP_NAME },
       { name: "theme-color", content: "#2B2155" },
-      { name: "description", content: "Juego grupal MIRARIM para trabajar la empatía en parvularia." },
+      { name: "description", content: "El viaje de los corazones para el Colegio Metodista Robert Johnson, Alto Hospicio." },
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },

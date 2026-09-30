@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BrandMark } from "@/components/brand/Logo";
+import { INSTITUTION_CREDIT } from "@/components/brand/InstitutionCredit";
 import { SITUACIONES, TOTAL_SITUACIONES } from "@/data";
 import { useGameStore } from "@/store/game-store";
 
@@ -78,7 +79,7 @@ export function CertificateView() {
           className="rounded-xl bg-paper p-8 text-center md:p-12"
           style={{ boxShadow: "inset 0 0 0 8px var(--color-indigo), inset 0 0 0 12px var(--color-gold)" }}
         >
-          <BrandMark className="mx-auto h-16" />
+          <BrandMark className="mx-auto h-28" />
           <p className="mt-6 text-sm font-bold tracking-[0.3em] text-coral">CERTIFICADO</p>
           <h1 className="mt-3 text-3xl font-extrabold text-indigo md:text-4xl">Expertos en empatía</h1>
           <p className="mt-6 text-lg">Este certificado reconoce que</p>
@@ -91,6 +92,7 @@ export function CertificateView() {
           </p>
           <p className="text-muted">Respuestas adecuadas a la primera: {firstTry} / {TOTAL_SITUACIONES}</p>
           <p className="mt-4 text-muted">{date}</p>
+          <p className="mt-6 text-[11px] font-semibold tracking-wide text-muted">{INSTITUTION_CREDIT}</p>
         </article>
       </div>
     </section>
