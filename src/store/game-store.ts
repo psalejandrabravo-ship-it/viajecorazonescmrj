@@ -357,22 +357,31 @@ export const useGameStore = create<GameStore>((set, get) => ({
   saveProfile: (name) => {
     const { customize, completed, answers, certificateDate, profiles, activeProfileId } = get();
     const existing = profiles.find((p) => p.id === activeProfileId);
+    const finalName = name.trim() || existing?.name || "";
+    const nextCustomize = { ...customize, courseName: finalName };
     if (existing) {
       const updated: Profile = {
         ...existing,
-        name: name.trim() || existing.name,
-        customize: { ...customize },
+        name: finalName || existing.name,
+        customize: nextCustomize,
         completed: [...completed],
         answers: { ...answers },
         certificateDate,
       };
-      set({ profiles: profiles.map((p) => (p.id === existing.id ? updated : p)) });
+      set({
+        customize: nextCustomize,
+        profiles: profiles.map((p) => (p.id === existing.id ? updated : p)),
+      });
     } else {
-      const profile = newProfile(name, customize);
+      const profile = newProfile(finalName, nextCustomize);
       profile.completed = [...completed];
       profile.answers = { ...answers };
       profile.certificateDate = certificateDate;
-      set({ profiles: [...profiles, profile], activeProfileId: profile.id });
+      set({
+        customize: nextCustomize,
+        profiles: [...profiles, profile],
+        activeProfileId: profile.id,
+      });
     }
     get().persist();
   },

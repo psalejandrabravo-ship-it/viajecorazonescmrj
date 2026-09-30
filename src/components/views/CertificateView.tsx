@@ -28,7 +28,12 @@ export function CertificateView() {
 
   const firstTry = SITUACIONES.filter((s) => answers[String(s.id)]?.correct).length;
   const done = Math.min(completed.length, TOTAL_SITUACIONES);
-  const who = [customize.courseName, customize.schoolName].filter(Boolean).join(" · ") || "este grupo";
+  const profiles = useGameStore((s) => s.profiles);
+  const activeProfileId = useGameStore((s) => s.activeProfileId);
+  const activeCourse = profiles.find((profile) => profile.id === activeProfileId)?.name.trim() ?? "";
+  const storedCourse = customize.courseName.trim();
+  const course = storedCourse === "Alto Hospicio" ? "" : storedCourse;
+  const who = activeCourse || course || "este grupo";
 
   async function downloadPdf() {
     const el = document.getElementById("certificate-print");

@@ -67,7 +67,7 @@ export const defaultSettings: Settings = {
 export function defaultCustomize(): Customize {
   return {
     schoolName: "Colegio Metodista Robert Johnson",
-    courseName: "Alto Hospicio",
+    courseName: "",
     teacherName: "",
     logoDataUrl: null,
     logoMode: "mirarim",

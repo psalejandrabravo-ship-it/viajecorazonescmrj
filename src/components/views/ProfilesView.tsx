@@ -18,7 +18,7 @@ export function ProfilesView() {
         <BrandMark />
         <h1 className="text-3xl font-extrabold text-indigo">Perfiles</h1>
         <p className="text-muted">
-          Guarda el avance de un curso en este dispositivo. Puedes cambiar de sala sin mezclar el recorrido.
+          Guarda el avance de un curso en este dispositivo. Ese nombre es el que aparece en el certificado.
         </p>
 
         <div className="flex flex-col gap-3 sm:flex-row">
@@ -26,7 +26,7 @@ export function ProfilesView() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder="Nombre del perfil, por ejemplo Sala azul"
+            placeholder="Curso, por ejemplo Prekínder A"
             maxLength={80}
             className="min-h-14 flex-1 rounded-xl border border-line bg-paper px-4 text-lg"
           />
@@ -50,10 +50,7 @@ export function ProfilesView() {
               >
                 <div className="min-w-0 flex-1">
                   <p className="font-extrabold text-indigo">{profile.name}</p>
-                  <p className="text-sm text-muted">
-                    {profile.completed.length} / {TOTAL_SITUACIONES} situaciones
-                    {profile.customize.courseName ? ` · ${profile.customize.courseName}` : ""}
-                  </p>
+                  <p className="text-sm text-muted">{profile.completed.length} / {TOTAL_SITUACIONES} situaciones</p>
                 </div>
                 <button
                   type="button"
