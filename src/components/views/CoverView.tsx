@@ -9,12 +9,17 @@ import { useGameStore } from "@/store/game-store";
 export function CoverView() {
   const setScreen = useGameStore((s) => s.setScreen);
   const startFromCover = useGameStore((s) => s.startFromCover);
+  const startPlay = useGameStore((s) => s.startPlay);
   const completed = useGameStore((s) => s.completed);
   const allDone = completed.length >= TOTAL_SITUACIONES;
 
   function play() {
     unlockAudio();
     warmupVoices();
+    if (allDone || completed.length > 0) {
+      startPlay();
+      return;
+    }
     startFromCover();
   }
 
@@ -29,26 +34,37 @@ export function CoverView() {
       <div className="relative z-10 flex justify-end px-3 pt-3">
         <FullscreenButton light label />
       </div>
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-5 px-6 pb-10 text-center">
-        <BrandMark className="h-20 shrink-0 md:h-24" />
-        <div className="max-w-3xl shrink-0 space-y-2">
-          <h1 className="text-3xl font-extrabold tracking-tight text-cream sm:text-4xl md:text-5xl">
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-3 overflow-hidden px-6 text-center">
+        <BrandMark className="h-14 max-h-[18vh] w-auto shrink md:h-16" />
+        <div className="max-w-3xl shrink space-y-1">
+          <h1 className="text-2xl font-extrabold tracking-tight text-cream sm:text-4xl md:text-5xl">
             El viaje de los corazones
           </h1>
-          <p className="text-base text-cream/90 md:text-xl">Un viaje para mirar, comprender y cuidar.</p>
-          <p className="text-sm font-semibold text-gold md:text-base">
+          <p className="text-sm text-cream/90 sm:text-base md:text-xl">Un viaje para mirar, comprender y cuidar.</p>
+          <p className="text-sm font-semibold text-gold">
             {TOTAL_SITUACIONES} situaciones · para proyectar en la sala
           </p>
         </div>
-        <div className="flex w-full max-w-3xl shrink-0 flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-center">
+      </div>
+      <div className="relative z-10 flex shrink-0 flex-col items-center gap-2 px-4 pb-8">
+        <div className="flex w-full max-w-3xl flex-col gap-2 sm:flex-row sm:flex-wrap sm:justify-center">
           <button
             type="button"
             onClick={play}
             className="inline-flex h-14 min-w-44 items-center justify-center gap-2 rounded-xl bg-coral px-8 text-lg font-extrabold text-paper shadow-lg transition hover:brightness-110"
           >
             <Play className="size-5" aria-hidden />
-            {allDone ? "Ver certificado" : completed.length ? "Continuar" : "Jugar"}
+            {completed.length && !allDone ? "Continuar" : "Jugar"}
           </button>
+          {allDone ? (
+            <button
+              type="button"
+              onClick={() => setScreen("certificate")}
+              className="inline-flex h-14 min-w-44 items-center justify-center gap-2 rounded-xl bg-paper/15 px-6 text-base font-semibold text-cream backdrop-blur-sm transition hover:bg-paper/25"
+            >
+              Ver certificado
+            </button>
+          ) : null}
           <button
             type="button"
             onClick={() => setScreen("profiles")}
