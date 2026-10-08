@@ -35,18 +35,18 @@ export function WelcomeView() {
       <div className="relative z-10 flex justify-end px-3 pt-3">
         <FullscreenButton light label />
       </div>
-      <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-3 overflow-hidden px-6 text-center">
-        <BrandMark className="h-14 max-h-[16vh] w-auto shrink md:h-16" />
-        <div className="max-w-2xl space-y-2">
+      <div className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-6 px-6 pb-8 text-center">
+        <BrandMark className="h-20 shrink-0 md:h-24" />
+        <div className="max-w-2xl space-y-3">
           <p className="text-sm font-extrabold uppercase tracking-[0.2em] text-gold">Bienvenida</p>
-          <h1 className="text-2xl font-extrabold tracking-tight text-cream sm:text-4xl md:text-5xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-cream sm:text-4xl md:text-5xl">
             El viaje de los corazones
           </h1>
-          <p className="text-sm text-cream/90 sm:text-base md:text-xl">Un viaje para mirar, comprender y cuidar.</p>
-          <p className="text-sm text-cream/80">Pueden ver el video de Sofía y Lucas o empezar a jugar ahora.</p>
+          <p className="text-base text-cream/90 md:text-xl">Un viaje para mirar, comprender y cuidar.</p>
+          <p className="text-sm text-cream/80 md:text-base">
+            Pueden ver el video de Sofía y Lucas o empezar a jugar ahora.
+          </p>
         </div>
-      </div>
-      <div className="relative z-10 flex shrink-0 flex-col items-center gap-3 px-4 pb-8">
         <div className="flex w-full max-w-xl flex-col gap-3 sm:flex-row sm:justify-center">
           <button
             type="button"
