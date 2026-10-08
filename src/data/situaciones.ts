@@ -399,9 +399,9 @@ export const SITUACIONES: Situacion[] = [
         texto: "Acercarse y consolarla",
         correcta: true,
         alt: "Emma se acerca y consuela a Carolina.",
-        feedback: "¡Muy bien! Emma está siendo una buena amiga.",
+        feedback: "¡Muy bien! Es importante ser buenos amigos.",
         explicacion:
-          "Cuando alguien se lastima, necesita ayuda y cariño. Emma puede acercarse, ayudarla a levantarse, o llamar a un adulto. Eso es ser EMPÁTICO.",
+          "Cuando alguien se lastima, necesita ayuda y cariño. Pueden acercarse, ayudarla a levantarse, o llamar a un adulto. Eso es ser EMPÁTICO.",
       },
       {
         id: "b",
@@ -411,7 +411,7 @@ export const SITUACIONES: Situacion[] = [
         alt: "Siguen jugando sin ayudar.",
         feedback: "Esa no es la mejor opción.",
         explicacion:
-          "Si Emma ignora a Carolina, ella se sentirá sola además de lastimada. Cuando alguien necesita ayuda, no debemos ignorarlo.",
+          "Si la ignoran, Carolina se sentirá sola además de lastimada. Cuando alguien necesita ayuda, no debemos ignorarlo.",
       },
       {
         id: "c",
@@ -478,7 +478,7 @@ export const SITUACIONES: Situacion[] = [
         correcta: true,
         feedback: "¡Correcto! Benjamín está enojado.",
         explicacion:
-          "Benjamín se siente ENOJADO porque destruyeron su torre. Podemos ver el enojo: puños apretados, cara roja. Está bien sentir enojo, pero debemos CONTROLARLO: respirar profundo, contar hasta 10, hablar de lo que sentimos.",
+          "Benjamín se siente ENOJADO porque destruyeron su torre. Podemos ver el enojo: puños apretados, cara roja. Está bien sentir enojo, pero debemos hablar sobre lo ocurrido e intentar tranquilizarnos: respirar profundo, contar hasta 10, hablar de lo que sentimos.",
       },
     ],
     guion: {
